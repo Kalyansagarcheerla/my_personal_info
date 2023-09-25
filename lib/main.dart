@@ -1,37 +1,43 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: const FirebaseOptions(
+        apiKey: "AIzaSyCkq3PwRPM8gjDYEoD_JfR06GhS0wwYLl8",
+        authDomain: "mybio-4abc4.firebaseapp.com",
+        projectId: "mybio-4abc4",
+        storageBucket: "mybio-4abc4.appspot.com",
+        messagingSenderId: "1028909515588",
+        appId: "1:1028909515588:web:00b62f9f42d01523aecd11",
+        measurementId: "G-WYM2QB4QEY"),
+  );
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
+
+  // final Future<FirebaseApp> _initial = Firebase.initializeApp();
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demogg',
+      debugShowCheckedModeBanner: false,
+      title: 'kalyan_bio',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: ''),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
 
   final String title;
 
@@ -44,58 +50,147 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _incrementCounter() {
     setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
       _counter++;
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
     return Scaffold(
-      appBar: AppBar(
-        // TRY THIS: Try changing the color here to a specific color (to
-        // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
-        // change color while the other colors stay the same.
+      /* appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
+      ),*/
+      body: Padding(
+        padding: EdgeInsets.only(left: 150.0, right: 150.0),
         child: Column(
-
-          mainAxisAlignment: MainAxisAlignment.center,
+          // mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
+            Container(
+              alignment: Alignment.center,
+              height: 200,
+              decoration: BoxDecoration(
+                  color: Colors.blueAccent.withOpacity(0.5),
+                  borderRadius: BorderRadius.circular(8.0)),
+              child: header(),
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
+            SizedBox(height: 10),
+            card("Bio:",
+                "krhfiyergurueufruyegyfueygfrgergfherfyhberyhbgfyegrygfbeygbfyebgyubeygrfhe"),
+            card(
+              "Technology:", "", Image.network(
+                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQU6uLBoXtohktGKTXZFaUGAZpXUYmR8f215bex1q7&s",
+            width: 50,height: 50,  ),Image.network(
+                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQU6uLBoXtohktGKTXZFaUGAZpXUYmR8f215bex1q7&s",
+            width: 50,height: 50,  ),Image.network(
+                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQU6uLBoXtohktGKTXZFaUGAZpXUYmR8f215bex1q7&s",
+            width: 50,height: 50,  ),Image.network(
+                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQU6uLBoXtohktGKTXZFaUGAZpXUYmR8f215bex1q7&s",
+            width: 50,height: 50,  ),
             ),
           ],
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
+    );
+  }
+
+  Widget header() {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: [
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              "WelCome",
+              style: TextStyle(fontSize: 40),
+            ),
+            SizedBox(height: 10),
+            Container(
+              width: 250,
+              height: 50,
+              child: GridTileBar(
+                leading: Icon(Icons.email, color: Colors.black),
+                title: Text("kalyansagar9440@g.com",
+                    style: TextStyle(color: Colors.black)),
+              ),
+            ),
+            Container(
+              width: 250,
+              height: 50,
+              child: GridTileBar(
+                leading: Icon(Icons.phone, color: Colors.black),
+                title:
+                    Text("7993745611", style: TextStyle(color: Colors.black)),
+              ),
+            ),
+          ],
+        ),
+        Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Row(
+              children: [
+                Container(
+                    height: 50,
+                    width: 200,
+                    child: GridTileBar(
+                      title: Text("Kalyan Sagar Cheerla"),
+                      subtitle: Text("Software Engineer"),
+                    )),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(8.0),
+                  child: Image.network(
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQU6uLBoXtohktGKTXZFaUGAZpXUYmR8f215bex1q7&s",
+                  ),
+                )
+              ],
+            ),
+          ],
+        ),
+      ],
+    );
+  }
+
+  Widget card([String? lable, String? content,Widget? widget, Widget? widget1, Widget? widget2, Widget? widget3]) {
+    return Card(
+      elevation: 10,
+      child: Container(
+        // height: 100,
+        width: 1250,
+        decoration: BoxDecoration(borderRadius: BorderRadius.circular(8.0)),
+        child: Padding(
+          padding: EdgeInsets.all(15.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text("$lable"),
+              Text("$content"),
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(8.0),
+                    child: widget,
+                  ),ClipRRect(
+                    borderRadius: BorderRadius.circular(8.0),
+                    child: widget1,
+                  ),ClipRRect(
+                    borderRadius: BorderRadius.circular(8.0),
+                    child: widget2,
+                  ),ClipRRect(
+                    borderRadius: BorderRadius.circular(8.0),
+                    child: widget3,
+                  ),
+                ],
+              ),
+
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
