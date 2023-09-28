@@ -1,5 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:my_bio/page/home.dart';
+import 'package:my_bio/resume.dart';
+import 'package:my_bio/theam/app_theam.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -18,49 +21,33 @@ void main() async {
 
 class MyApp extends StatelessWidget {
   MyApp({super.key});
-
-  // final Future<FirebaseApp> _initial = Firebase.initializeApp();
-
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'kalyan_bio',
-      theme: ThemeData(
+      title: 'Kalyan Cheerla',
+      theme: AppThemeData.themeData,
+      /*theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
-      ),
-      home: const MyHomePage(title: ''),
+      ),*/
+      home:HomePage(), /*const MyHomePage(),*/
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
+  const MyHomePage({super.key});
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      /* appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
-      ),*/
       body: Padding(
         padding: EdgeInsets.only(left: 150.0, right: 150.0),
         child: Column(
@@ -76,17 +63,51 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             SizedBox(height: 10),
             card("Bio:",
-                "krhfiyergurueufruyegyfueygfrgergfherfyhberyhbgfyegrygfbeygbfyebgyubeygrfhe"),
+                ""),
+            SizedBox(height: 5),
             card(
-              "Technology:", "", Image.network(
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQU6uLBoXtohktGKTXZFaUGAZpXUYmR8f215bex1q7&s",
-            width: 50,height: 50,  ),Image.network(
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQU6uLBoXtohktGKTXZFaUGAZpXUYmR8f215bex1q7&s",
-            width: 50,height: 50,  ),Image.network(
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQU6uLBoXtohktGKTXZFaUGAZpXUYmR8f215bex1q7&s",
-            width: 50,height: 50,  ),Image.network(
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQU6uLBoXtohktGKTXZFaUGAZpXUYmR8f215bex1q7&s",
-            width: 50,height: 50,  ),
+              "Technology:",
+              "",
+              Image.network(
+                "https://static-00.iconduck.com/assets.00/flutter-plain-icon-827x1024-okfp25wt.png",
+                width: 50,
+                height: 50,
+              ),
+              Image.network(
+                "https://cdn1.iconfinder.com/data/icons/programing-development-8/24/react_logo-512.png",
+                width: 50,
+                height: 50,
+              ),
+
+            ), SizedBox(height: 5),
+            card(
+              "Projects:",
+              "",
+              Image.network(
+                "https://pbs.twimg.com/profile_images/1066569829576929280/9BZ_f4_M_400x400.jpg",
+                width: 50,
+                height: 50,
+              ),
+              Image.network(
+                "https://cdn1.iconfinder.com/data/icons/programing-development-8/24/react_logo-512.png",
+                width: 50,
+                height: 50,
+              ),
+
+            ),card(
+              "Tools:",
+              "",
+              Image.network(
+                "https://pbs.twimg.com/profile_images/1066569829576929280/9BZ_f4_M_400x400.jpg",
+                width: 50,
+                height: 50,
+              ),
+              Image.network(
+                "https://cdn1.iconfinder.com/data/icons/programing-development-8/24/react_logo-512.png",
+                width: 50,
+                height: 50,
+              ),
+
             ),
           ],
         ),
@@ -103,17 +124,17 @@ class _MyHomePageState extends State<MyHomePage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
+           /* Text(
               "WelCome",
               style: TextStyle(fontSize: 40),
             ),
-            SizedBox(height: 10),
+            SizedBox(height: 10),*/
             Container(
               width: 250,
               height: 50,
               child: GridTileBar(
                 leading: Icon(Icons.email, color: Colors.black),
-                title: Text("kalyansagar9440@g.com",
+                title: Text("kalyansagar9440@gmail.com",
                     style: TextStyle(color: Colors.black)),
               ),
             ),
@@ -133,19 +154,33 @@ class _MyHomePageState extends State<MyHomePage> {
           children: [
             Row(
               children: [
-                Container(
-                    height: 50,
-                    width: 200,
-                    child: GridTileBar(
-                      title: Text("Kalyan Sagar Cheerla"),
-                      subtitle: Text("Software Engineer"),
-                    )),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                        height: 50,
+                        width: 250,
+                        child: GridTileBar(
+                          title: Text("Kalyan Sagar Cheerla",style: TextStyle(fontSize: 22,color: Colors.black)),
+                          subtitle: Text("Software Engineer",style: TextStyle(fontSize: 16,color: Colors.black)),
+                        )),
+                    Padding(
+                      padding:  EdgeInsets.all(5.0),
+                      child: TextButton(onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const MYRESUME()),
+                        );
+                      }, child: Text("View My Resume")),
+                    ),
+                  ],
+                ),
                 ClipRRect(
                   borderRadius: BorderRadius.circular(8.0),
                   child: Image.network(
-                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQU6uLBoXtohktGKTXZFaUGAZpXUYmR8f215bex1q7&s",
+                    "web/icons/Icon-192.png",
                   ),
-                )
+                ),
               ],
             ),
           ],
@@ -154,7 +189,13 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  Widget card([String? lable, String? content,Widget? widget, Widget? widget1, Widget? widget2, Widget? widget3]) {
+  Widget card(
+      [String? lable,
+      String? content,
+      Widget? widget,
+      Widget? widget1,
+      Widget? widget2,
+      Widget? widget3]) {
     return Card(
       elevation: 10,
       child: Container(
@@ -174,19 +215,21 @@ class _MyHomePageState extends State<MyHomePage> {
                   ClipRRect(
                     borderRadius: BorderRadius.circular(8.0),
                     child: widget,
-                  ),ClipRRect(
+                  ),
+                  ClipRRect(
                     borderRadius: BorderRadius.circular(8.0),
                     child: widget1,
-                  ),ClipRRect(
+                  ),
+                  ClipRRect(
                     borderRadius: BorderRadius.circular(8.0),
                     child: widget2,
-                  ),ClipRRect(
+                  ),
+                  ClipRRect(
                     borderRadius: BorderRadius.circular(8.0),
                     child: widget3,
                   ),
                 ],
               ),
-
             ],
           ),
         ),
