@@ -4,6 +4,7 @@ class KeyHolders {
   static final GlobalKey headerKey = GlobalKey();
   static final GlobalKey webDomainKey = GlobalKey();
   static final GlobalKey developerKey = GlobalKey();
+  static final GlobalKey SoftwareDevelopmentKits = GlobalKey();
   static final GlobalKey blogKey = GlobalKey();
   static final GlobalKey socialKey = GlobalKey();
   static final GlobalKey credentialKey = GlobalKey();

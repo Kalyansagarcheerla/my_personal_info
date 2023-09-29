@@ -4,6 +4,7 @@ import 'package:my_bio/page/header.dart';
 import 'package:my_bio/selection/blog.dart';
 import 'package:my_bio/selection/contact.dart';
 import 'package:my_bio/selection/developer.dart';
+import 'package:my_bio/selection/sdks.dart';
 import 'package:my_bio/selection/social.dart';
 import 'package:my_bio/theam/app_theam.dart';
 
@@ -50,6 +51,7 @@ class _HomePageState extends State<HomePage> {
             children: const [
               Header(),
               Developer(),
+              SoftwareDevelopmentKits(),
               Social(),
               Blog(),
               Contact(),
