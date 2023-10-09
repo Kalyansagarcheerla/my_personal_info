@@ -1,7 +1,7 @@
 class DataValues {
   // About App
   static const String appName = 'Kalyan Cheerla | Profile';
-  static const String appNameLong = 'mybio-4abc4';
+  static const String appNameLong = 'software developer';
   static const String appDescription =
       'This is a single web page containing links to all my online profiles.';
   static const String appDescriptionLong =

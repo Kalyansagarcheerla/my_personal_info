@@ -4,18 +4,16 @@ import 'dart:developer';
 
 import 'package:my_bio/theam/app_theam.dart';
 
-
-
 class CardProfile extends StatelessWidget {
   final String type, widget, title;
-  final Uri url;
+  final Uri? url;
 
   const CardProfile(
       {Key? key,
-        required this.type,
-        required this.widget,
-        required this.title,
-        required this.url})
+      required this.type,
+      required this.widget,
+      required this.title,
+      this.url})
       : super(key: key);
 
   Future<void> launchURL(Uri url) async {
@@ -38,8 +36,12 @@ class CardProfile extends StatelessWidget {
         mouseCursor: SystemMouseCursors.click,
         hoverColor: AppThemeData.buttonSecondary,
         selectedColor: AppThemeData.cardGrey,
-        onTap: () => launchURL(url),
-        leading: type == 'logo'
+        onTap: () => launchURL(url!),
+        /*leading:Image.asset("",
+          // 'assets/images/$widget.png',
+          width: 50.0,
+          height: 50.0,
+        ),*/ /*type == 'logo'
             ? Image.asset(
           'assets/images/$widget.png',
           width: 50.0,
@@ -57,7 +59,7 @@ class CardProfile extends StatelessWidget {
               height: 50.0,
             );
           },
-        ),
+        ),*/
         title: Text(
           title,
           style: AppThemeData.themeData.textTheme.labelLarge,

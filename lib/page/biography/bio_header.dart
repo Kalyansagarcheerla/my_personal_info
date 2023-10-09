@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:my_bio/page/biography/bio_home.dart';
 import 'package:my_bio/statics/data_values.dart';
 import 'package:my_bio/statics/key_holders.dart';
 import 'package:my_bio/theam/app_theam.dart';
 import 'package:my_bio/widgets/button_rectangle.dart';
 
-class Header extends StatelessWidget {
-  const Header({Key? key}) : super(key: key);
+class HeaderBio extends StatelessWidget {
+  const HeaderBio({Key? key}) : super(key: key);
 
   void scrollDown(GlobalKey key) {
     Scrollable.ensureVisible(
@@ -15,7 +14,7 @@ class Header extends StatelessWidget {
     );
   }
 
-  Widget navBar(BuildContext context) {
+  /*Widget navBar() {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -23,8 +22,7 @@ class Header extends StatelessWidget {
           name: 'Developer',
           onPressed: () => scrollDown(KeyHolders.developerKey),
           message: 'Click to view my developer profiles',
-        ),
-        ButtonRectangle(
+        ),ButtonRectangle(
           name: 'SoftwareDevelopmentKits',
           onPressed: () => scrollDown(KeyHolders.SoftwareDevelopmentKits),
           message: 'Click to view my SoftwareDevelopmentKits uses',
@@ -43,18 +41,11 @@ class Header extends StatelessWidget {
           name: 'Contact Me',
           onPressed: () => scrollDown(KeyHolders.contactKey),
           message: 'Click to view my contact details',
-        ),ButtonRectangle(
-          name: 'profile Me',
-          onPressed: () => Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => const HomePageBio()),
-          ),
-          message: 'Click to view my contact details',
         ),
         const SizedBox(width: 20.0),
       ],
     );
-  }
+  }*/
 
   @override
   Widget build(BuildContext context) {
@@ -78,17 +69,9 @@ class Header extends StatelessWidget {
               style: AppThemeData.themeData.textTheme.headlineMedium,
             ),
             const SizedBox(height: 5.0),
-            InkWell(
-              onTap: () {
-               /* Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const HomePageBio()),
-                );*/
-              },
-              child: SelectableText(
-                DataValues.appNameLong,
-                style: AppThemeData.themeData.textTheme.titleLarge,
-              ),
+            SelectableText(
+              DataValues.appNameLong,
+              style: AppThemeData.themeData.textTheme.titleLarge,
             ),
             const SizedBox(height: 20.0),
             Padding(
@@ -101,7 +84,7 @@ class Header extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 40.0),
-            navBar(context),
+            // navBar(),
           ],
         ),
       ),

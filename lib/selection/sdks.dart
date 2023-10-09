@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:my_bio/statics/data_values.dart';
 import 'package:my_bio/theam/app_theam.dart';
 
-import '../statics/data_values.dart';
 import '../statics/key_holders.dart';
 import '../widgets/card_profile.dart';
 import '../widgets/text_section_head.dart';
@@ -29,23 +29,27 @@ class SoftwareDevelopmentKits extends StatelessWidget {
               type: 'IDE',
               widget: 'androidStudio',
               title: 'Android Studio',
-              url: DataValues.githubURL,
+              url: Uri.parse(''),
+              // url: DataValues.githubURL,
             ),
             CardProfile(
               type: 'Apis',
               widget: 'postman',
               title: 'Postman',
-              url: DataValues.framerURL,
+              url: Uri.parse(''),
+              // url: DataValues.framerURL,
             ),CardProfile(
               type: 'framework',
               widget: 'flutter',
               title: 'Flutter',
-              url: DataValues.framerURL,
+              url: Uri.parse(''),
+              // url: DataValues.framerURL,
             ),CardProfile(
               type: 'language',
               widget: 'dart',
               title: 'Dart',
-              url: DataValues.framerURL,
+              url: Uri.parse(''),
+              // url: DataValues.framerURL,
             ),
 
           ],
